@@ -1,0 +1,29 @@
+<div>
+    <button (click)="showUserList()">{{ isListVisible ? 'Hide User List' : 'Show User List' }}
+      </button>
+    <h1>User List</h1>
+  
+    <!-- Display the table only if there are users -->
+    <table *ngIf="isListVisible" border="1">
+      <thead>
+        <tr>
+          <th>first Name</th>
+          <th>last Name</th>
+          <th>Email</th>
+          <th>created at </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.firstName }}</td>
+          <td>{{ user.lastName }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.createdAt }}</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <!-- Message if no users are present -->
+    <p *ngIf="isListVisible && users.length === 0">No users found.</p>
+  </div>
+  
